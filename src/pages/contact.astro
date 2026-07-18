@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+
+const rooms = Array.from({ length: 8 }, (_, i) => `tanterem-${String(i + 1).padStart(2, '0')}.jpg`);
+---
+
+<Base title="Tantermeink" description="A Szent László Magyar Iskola tantermei.">
+  <div class="container">
+    <h1 class="page-title">Tantermeink</h1>
+
+    <p class="prose">
+      A Magyarok Nagyasszonya Katolikus Templomhoz kapcsolódó épületben három tanterem
+      és egy óvodai szoba áll rendelkezésünkre. Az iskolai ünnepségeknek a nagyteremben
+      lévő színpad ad helyet.
+    </p>
+
+    <div class="gallery">
+      {rooms.map((img, i) => (
+        <a href={`/images/${img}`} target="_blank">
+          <img src={`/images/${img}`} alt={`Tanterem ${i + 1}`} loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

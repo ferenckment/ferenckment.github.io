@@ -1,0 +1,78 @@
+---
+import Base from '../layouts/Base.astro';
+
+const photos = Array.from({ length: 14 }, (_, i) => `tabor2022-${String(i + 1).padStart(2, '0')}.jpg`);
+---
+
+<Base title="Diaszpóra Iskolatábor 2022" description="Beszámoló a 2022-es vancouveri Diaszpóra Iskolatáborról.">
+  <div class="container container--narrow prose">
+    <h1 class="page-title">Diaszpóra Iskolatábor 2022</h1>
+
+    <p>
+      A három évvel ezelőtti sikeres tábor után a Szent László Magyar Iskola azzal
+      a céllal szervezte meg az idei tábort, hogy a járvány után újra felélesszük a
+      magyar közösséget, a magyar nyelv és kultúra tanulása iránti vágyat. Továbbá,
+      hogy az iskolánkba járó, illetve a vonzáskörzetben élő magyar származású,
+      magyarul beszélő gyerekeknek lehetőséget adjon a magyar nyelvtudásuk
+      mélyítésére, valamint Magyarország történelmének, földrajzának, kulturális
+      kincseinek, hagyományának megismerésére. A tábor nem bentlakásos, hanem
+      bejárós volt idén, reggel 9-től délután 17 óráig tartott. A Magyarok
+      Nagyasszonya Egyházközség (Our Lady of Hungary) biztosítja a tantermeket
+      évközben az iskola számára, most a tábort is ott rendeztük. Így használhattuk
+      a színpadot és a nagytermet is. A sportfoglalkozásokat pedig az iskolától öt
+      perc sétára lévő parkban, játszótéren tartottuk. A szervezés során
+      jelentkezett egy nagymama, hogy beíratná a Montrealból épp itt nyaraló
+      unokáit a táborba. Kiderült, a lánya a Szent László Iskolában tanult, majd
+      elköltözött Montrealba, ahol aktív tagja, pedagógusa az ottani magyar
+      iskolának. Úgy alakult, hogy végül ő vállalta el az egyik csoport tanítását.
+      Fantasztikus példája mindez annak, hogy – bár 3700 km-re élünk egymástól –
+      ha kell, támogatjuk egymást.
+    </p>
+    <p>
+      A tábor végtelenül kiegyensúlyozott volt, az együtt töltött idő jó hangulatban
+      telt. A tábor témaválasztása – a népmese – nagyszerű ötletnek bizonyult,
+      hiszen minden korosztály örömmel hallgatja, minden korosztályt megszólít
+      valamilyen módon. Mesélni, álmodozni mindenki szeret, ezt most is
+      megtapasztaltuk. A visszajelzések alapján a gyerekek nagyon élvezték ezt az
+      egy hetet. 25 fővel indultunk, de az egyik családban a két nagyobbik gyermek
+      annyit mesélt otthon, hogy a hét közepétől csatlakozott a legkisebb is.
+      Amikor a tábor véget ért, az egyik szülő azt írta: a kisfia szombat reggel
+      úgy ébredt, hogy akkor most induljunk a magyar táborba; de most ne öt napos
+      legyen, mert az rövid, hanem nyolc. Ennél nagyobb elismerést nem kaphattunk
+      volna!
+    </p>
+    <p>
+      A táborozó gyerekek nyelvtudása a magyar mint idegen nyelv alapszintű
+      ismeretétől a csaknem tökéletesig terjedt. A gyerekek meglévő nyelvtudását
+      részben a folyamatos magyar beszéddel, illetve a napi foglalkozásokkal
+      mélyítettük. A tábor egy kis magyar szigetként működött a héten is.
+    </p>
+    <p>
+      A napokat öt különböző téma köré szerveztük, de valamennyi a magyar
+      nyelvtant, irodalmat, történelmet és földrajzot is érintette. A tanítás
+      játékosan, az élménypedagógia eszközeit használva zajlott. Minden gyermek
+      kapott egy-egy mappát, amibe a heti anyagot gyűjtötték, amit pénteken minden
+      korosztály örömmel mutatott meg a szüleinek. Az idei tábor újdonsága a póló
+      volt, amit nagy örömmel viseltek a gyerekek. A táncoktatás két csoportban
+      zajlott. A kisebbek még csak az alapokkal ismerkedtek, amíg a nagyok
+      komolyabb lépésekkel is elboldogultak már. A hét záróeseménye a pénteki
+      bábozás volt. Reggel a gyerekek az iskola meglévő bábjai közül kiválogatták
+      a nekik tetszőket, majd közösen írtunk egy mesét, amit utána elő is adtunk a
+      színpadon. Nagyon jó volt látni, hogy egy hét aktív mesehallgatás, olvasás
+      után mennyire kreatívan alkották meg a népmesei elemeket felhasználva a tábor
+      meséjét. A tervezett program maximálisan megvalósult. Tartalmas, mozgalmas és
+      jó hangulatú tábort zártunk, amit szeretnénk tovább folytatni a következő
+      években is.
+    </p>
+  </div>
+
+  <div class="container">
+    <div class="gallery">
+      {photos.map((img, i) => (
+        <a href={`/images/${img}`} target="_blank">
+          <img src={`/images/${img}`} alt={`Diaszpóra Iskolatábor 2022 – ${i + 1}. kép`} loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

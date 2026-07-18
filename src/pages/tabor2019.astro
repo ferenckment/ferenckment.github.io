@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+
+const photos = Array.from({ length: 15 }, (_, i) => `tabor2019-${String(i + 1).padStart(2, '0')}.jpg`);
+---
+
+<Base title="Diaszpóra Iskolatábor 2019" description="Beszámoló a 2019-es vancouveri Diaszpóra Iskolatáborról.">
+  <div class="container container--narrow prose">
+    <h1 class="page-title">Diaszpóra Iskolatábor 2019</h1>
+
+    <p>
+      2019 februárjában hallottunk először a budapesti Külföldi Magyar Iskolák
+      Konferenciáján a Diaszpóra Iskolatáborokról. Annyira megtetszett az
+      iskolánknak, hogy néhány lelkes pedagógus és önkéntes segítő azonnal fel is
+      vette a kapcsolatot a Külföldi Magyar Cserkészszövetséggel. A szövetség nagyon
+      nyitott és segítőkész volt, így annak ellenére, hogy csak öt hónapunk állt a
+      rendelkezésre, a vancouveri Szent László Iskola meg tudta szervezni a tábort.
+      Találtunk megfelelő helyszínt, tánctanárt, szakácsot. Összeállítottuk a napi
+      öt óra foglalkozáshoz, négy szinten a tananyagot. Május 31-re 36 gyermek le is
+      adta a jelentkezését. A tábor végül nemzetközi lett, még Seattle-ből is
+      csatlakoztak hozzánk. Július 22-én pedig Maple Ridge-ben, a Camp Kanakában
+      megnyitotta kapuját a Szent László Magyar Iskola szervezésében a Kanadában
+      először megrendezésre kerülő Diaszpóra Iskolatábor.
+    </p>
+    <p>
+      Nagyon tartalmas és jó hangulatú 5 napot töltöttünk együtt. Ricsi és Anita
+      személyében két rátermett, proaktív, dinamikus, felkészült segítőt kaptunk.
+      Jobbat el se tudtunk volna képzelni.
+    </p>
+    <p>
+      A 36 gyermek 4 csoportban csiszolta meglévő ismereteit magyar nyelv és
+      irodalom terén. Nagy örömünkre sikerült minden gyermeknek egy atlaszt
+      rendelni. A gyerekek lelkesen forgatták, ismerkedtek általa Magyarország
+      földrajzával, megyéivel, városaival. A kerettörténet idén II. Rákóczi Ferenc
+      és kora volt. A gyerekek szintjüknek megfelelően, játékos módon képet kaptak
+      a történelem ezen korszakáról is.
+    </p>
+    <p>
+      A napi 5 óra tanulás nagy része is játékos formában zajlott. A drámapedagógia
+      elemeit és társasjátékokat hívtunk segítségül. A tanulás után tánc, ének és
+      kézműves foglalkozások színesítették a tábor mindennapjait.
+    </p>
+    <p>
+      Köszönjük szépen a Külföldi Magyar Cserkészszövetségnek, Szórád Gábornak a
+      segítséget, hogy ilyen rövid idő alatt mégis meg tudtuk szervezni a
+      táborunkat. Köszönjük a sok önkéntesnek (a tanároknak, a sport és kézműves
+      foglalkozásokat tartó segítőknek, a háttérben szorgoskodóknak), hogy minden
+      erőforrásunkat arra tudtuk fordítani, hogy a gyerekek minél tartalmasabb,
+      színvonalasabb hetet tölthessenek az iskolatáborban. Ahogy a fotó- és
+      videóösszeállítás mutatja, ez sikerült.
+    </p>
+
+    <iframe
+      class="video-embed"
+      src="https://www.youtube-nocookie.com/embed/vWw3oGWouP8"
+      title="Diaszpóra Iskolatábor 2019 – videó"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="container">
+    <div class="gallery">
+      {photos.map((img, i) => (
+        <a href={`/images/${img}`} target="_blank">
+          <img src={`/images/${img}`} alt={`Diaszpóra Iskolatábor 2019 – ${i + 1}. kép`} loading="lazy" />
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

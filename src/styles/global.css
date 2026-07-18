@@ -1,0 +1,430 @@
+/* ===== Szent László Magyar Iskola – global styles ===== */
+
+:root {
+  --ink: #0b1129;          /* dark navy — headings, body text */
+  --ink-soft: #3a4157;
+  --paper: #ffffff;
+  --paper-warm: #f7f5f0;
+  --accent: #9d2235;       /* deep Hungarian red */
+  --accent-green: #3e6b4f; /* muted Hungarian green */
+  --line: #e3e0d8;
+
+  --font-body: 'Open Sans', Arial, Helvetica, sans-serif;
+  --font-display: 'EB Garamond', Georgia, serif;
+  --font-nav: 'Alegreya Sans SC', 'Open Sans', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+/* push the footer to the bottom on short pages */
+main { flex: 1; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+h1 { font-size: clamp(2rem, 4.5vw, 3rem); }
+h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+h3 { font-size: 1.35rem; }
+
+a { color: var(--accent); }
+a:hover { color: var(--ink); }
+
+img { max-width: 100%; height: auto; display: block; }
+
+.container {
+  max-width: 62rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+.container--narrow { max-width: 46rem; }
+
+/* ===== Header / nav ===== */
+
+.site-header {
+  background: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+
+/* miniature flag edge: 2px red / 2px white / 2px green */
+.site-header::after {
+  content: '';
+  display: block;
+  height: 6px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent) 0 2px,
+    var(--paper) 2px 4px,
+    var(--accent-green) 4px 6px
+  );
+}
+
+.site-header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 0.6rem 1.25rem;
+}
+
+.site-brand {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.site-brand small {
+  display: block;
+  font-family: var(--font-nav);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+/* burger (mobile) */
+.nav-toggle { display: none; }
+.nav-toggle-label {
+  display: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  user-select: none;
+}
+
+.site-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.site-nav a {
+  font-family: var(--font-nav);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+  color: var(--ink);
+  padding: 0.55rem 0.75rem;
+  display: block;
+  white-space: nowrap;
+  border-radius: 4px;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--accent);
+}
+
+.site-nav li { position: relative; }
+
+.site-nav .submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 13rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgba(11, 17, 41, 0.10);
+  padding: 0.35rem;
+  flex-direction: column;
+}
+
+.site-nav li:hover > .submenu,
+.site-nav li:focus-within > .submenu {
+  display: flex;
+}
+
+.site-nav .submenu a {
+  font-size: 0.98rem;
+  padding: 0.45rem 0.75rem;
+}
+
+@media (max-width: 860px) {
+  .nav-toggle-label { display: block; }
+
+  .site-nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 0.5rem 1.25rem 1rem;
+  }
+
+  .nav-toggle:checked ~ .site-nav { display: block; }
+
+  .site-nav ul { flex-direction: column; gap: 0; }
+
+  .site-nav .submenu {
+    display: flex;
+    position: static;
+    border: none;
+    box-shadow: none;
+    padding-left: 1rem;
+  }
+}
+
+/* ===== Hero (homepage) ===== */
+
+.hero {
+  text-align: center;
+  padding: 3rem 0 1rem;
+}
+
+.hero h1 {
+  margin: 0.25rem 0;
+}
+
+.hero__kicker {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-nav);
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  font-size: 1.35rem;
+  color: var(--accent);
+}
+
+.hero__founded {
+  margin: 0;
+  font-family: var(--font-nav);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+/* 4-photo collage recreating the original homepage image layout:
+   wide photo on top, square bottom-left, two wide photos stacked right */
+.hero-collage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+  max-width: 56rem;
+  margin: 2rem auto 0;
+}
+
+.hero-collage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.hero-collage__top {
+  grid-column: 1 / -1;
+  aspect-ratio: 949 / 466;
+}
+
+.hero-collage__left {
+  grid-row: 2 / 4;
+  aspect-ratio: 1 / 1;
+}
+
+.hero-collage__right-1 { aspect-ratio: 464 / 226; }
+.hero-collage__right-2 { aspect-ratio: 464 / 227; }
+
+@media (max-width: 640px) {
+  .hero-collage {
+    grid-template-columns: 1fr;
+  }
+  .hero-collage__left { grid-row: auto; }
+}
+
+/* ===== Page blocks ===== */
+
+.page-title {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.6rem;
+  margin: 2.5rem 0 1.5rem;
+}
+
+.prose p { margin: 0 0 1rem; }
+
+.poem {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  max-width: 34rem;
+  margin: 3rem auto;
+  padding-left: 1.5rem;
+  border-left: 3px solid var(--accent);
+}
+
+.poem cite {
+  display: block;
+  margin-top: 1rem;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ===== Galleries ===== */
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+  gap: 0.75rem;
+  margin: 2rem 0;
+}
+
+.gallery a {
+  display: block;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.gallery img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.25s ease;
+}
+
+.gallery a:hover img { transform: scale(1.04); }
+
+/* ===== Teacher cards ===== */
+
+.teacher {
+  display: grid;
+  grid-template-columns: minmax(10rem, 14rem) 1fr;
+  gap: 1.5rem;
+  align-items: start;
+  margin: 2.5rem 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.teacher:first-of-type { border-top: none; padding-top: 0; }
+
+.teacher img { border-radius: 6px; }
+
+.teacher h3 { margin-top: 0; }
+
+@media (max-width: 640px) {
+  .teacher { grid-template-columns: 1fr; }
+  .teacher img { max-width: 16rem; }
+}
+
+/* ===== News ===== */
+
+.news-item {
+  border-top: 1px solid var(--line);
+  padding: 1.75rem 0;
+}
+
+.news-item:first-of-type { border-top: none; }
+
+.news-item time {
+  font-family: var(--font-nav);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.news-item h2 { margin: 0.25rem 0 0.75rem; }
+
+/* ===== Misc ===== */
+
+.btn {
+  display: inline-block;
+  font-family: var(--font-nav);
+  font-weight: 700;
+  text-decoration: none;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border-radius: 4px;
+}
+
+.btn:hover { background: var(--ink); color: #fff; }
+
+.info-box {
+  background: var(--paper-warm);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.map-embed {
+  width: 100%;
+  height: 22rem;
+  border: 0;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.video-embed {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  border: 0;
+  border-radius: 8px;
+  margin: 1.5rem 0;
+}
+
+.sponsors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  margin: 1.5rem 0;
+}
+
+.sponsors img { max-height: 6rem; width: auto; }
+
+/* ===== Footer ===== */
+
+.site-footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--line);
+  background: var(--paper-warm);
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+}
+
+.site-footer__inner {
+  max-width: 72rem;
+  margin-inline: auto;
+  padding: 2rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem 3rem;
+  justify-content: space-between;
+}
+
+.site-footer strong { color: var(--ink); }
