@@ -10,7 +10,7 @@ const rendered = await Promise.all(
   posts.map(async (post) => ({ post, Content: (await render(post)).Content }))
 );
 
-const fmt = new Intl.DateTimeFormat('hu-HU', { year: 'numeric', month: 'long', day: 'numeric' });
+const fmt = new Intl.DateTimeFormat('hu-HU', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' });
 ---
 
 <Base title="Hírek, Események" description="Hírek és események a Szent László Magyar Iskolában.">
