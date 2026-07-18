@@ -13,7 +13,8 @@ npm run build    # statikus build a dist/ mappába
 
 ## Szerkezet
 
-- `src/pages/` – az oldalak (egy `.astro` fájl = egy oldal, a fájlnév az URL)
+- `src/pages/` – az oldalak (egy `.astro` fájl = egy oldal, a fájlnév az URL;
+  az útvonalak angolul vannak, a tartalom magyarul)
 - `src/content/news/` – hírek markdown fájlokban; új hír = új `.md` fájl
 - `src/layouts/Base.astro` – közös keret: fejléc, menü, lábléc
 - `src/styles/global.css` – minden stílus

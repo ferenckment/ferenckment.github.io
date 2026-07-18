@@ -10,13 +10,14 @@ No database, no API, no client-side framework. Site language is Hungarian.
 
 ## Structure
 
-- One page = one `.astro` file in `src/pages/`. Several filenames contain Hungarian
-  accented characters (`rólunk.astro`, `hírek.astro`, `órarend.astro`,
-  `tandíj--jelentkezés.astro`) — these are intentional, they preserve the original
-  site's URLs. Do not rename them to ASCII.
+- One page = one `.astro` file in `src/pages/`. Routes are English
+  (`about`, `education`, `teachers`, `news`, `camps`, …) while all visible content
+  is Hungarian. The original site's Hungarian URLs redirect to the English ones
+  via the `redirects` map in `astro.config.mjs` — keep that map in sync if routes
+  change again.
 - News posts live in `src/content/news/*.md` (collection defined in
   `src/content.config.ts`). Adding a news item = adding a markdown file with
-  `title` and `date` frontmatter. The `/hírek` page lists them newest-first.
+  `title` and `date` frontmatter. The `/news` page lists them newest-first.
 - Shared layout/nav/footer: `src/layouts/Base.astro`. The nav menu is the `nav`
   array at the top of that file.
 - All styling: `src/styles/global.css`. Fonts: EB Garamond (headings),

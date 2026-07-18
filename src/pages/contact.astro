@@ -1,25 +1,24 @@
 ---
 import Base from '../layouts/Base.astro';
-
-const rooms = Array.from({ length: 8 }, (_, i) => `tanterem-${String(i + 1).padStart(2, '0')}.jpg`);
 ---
 
-<Base title="Tantermeink" description="A Szent László Magyar Iskola tantermei.">
-  <div class="container">
-    <h1 class="page-title">Tantermeink</h1>
+<Base title="Elérhetőség" description="A Szent László Magyar Iskola elérhetőségei – cím, email.">
+  <div class="container container--narrow prose">
+    <h1 class="page-title">Elérhetőség</h1>
 
-    <p class="prose">
-      A Magyarok Nagyasszonya Katolikus Templomhoz kapcsolódó épületben három tanterem
-      és egy óvodai szoba áll rendelkezésünkre. Az iskolai ünnepségeknek a nagyteremben
-      lévő színpad ad helyet.
-    </p>
-
-    <div class="gallery">
-      {rooms.map((img, i) => (
-        <a href={`/images/${img}`} target="_blank">
-          <img src={`/images/${img}`} alt={`Tanterem ${i + 1}`} loading="lazy" />
-        </a>
-      ))}
+    <div class="info-box">
+      <p style="margin: 0;">
+        <strong>Email:</strong>
+        <a href="mailto:szlmagyariskola@gmail.com">szlmagyariskola@gmail.com</a><br />
+        <strong>Cím:</strong> 1810 East 7th Avenue, Vancouver B.C. V5N 1S2
+      </p>
     </div>
+
+    <iframe
+      class="map-embed"
+      src="https://www.google.com/maps?q=1810%20E%207th%20Ave%20Vancouver%20BC&z=15&output=embed"
+      title="A Szent László Magyar Iskola térképen"
+      loading="lazy"
+    ></iframe>
   </div>
 </Base>

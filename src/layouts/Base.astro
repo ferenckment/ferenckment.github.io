@@ -11,31 +11,31 @@ const { title, description = 'A vancouveri Szent László Magyar Iskola hivatalo
 const nav = [
   { text: 'Kezdőlap', href: '/' },
   {
-    text: 'Rólunk', href: '/rólunk',
-    children: [{ text: 'Segítőink', href: '/segitoink' }],
+    text: 'Rólunk', href: '/about',
+    children: [{ text: 'Segítőink', href: '/volunteers' }],
   },
   {
-    text: 'Oktatás', href: '/oktatas',
+    text: 'Oktatás', href: '/education',
     children: [
-      { text: 'Tanáraink', href: '/tanaraink' },
-      { text: 'Tantermeink', href: '/contact' },
-      { text: 'Csoportjaink', href: '/csoportjaink' },
-      { text: 'Órarend', href: '/órarend' },
-      { text: 'Tandíj, jelentkezés', href: '/tandíj--jelentkezés' },
+      { text: 'Tanáraink', href: '/teachers' },
+      { text: 'Tantermeink', href: '/classrooms' },
+      { text: 'Csoportjaink', href: '/groups' },
+      { text: 'Órarend', href: '/schedule' },
+      { text: 'Tandíj, jelentkezés', href: '/tuition' },
     ],
   },
   {
-    text: 'Táborok', href: '/taborok',
+    text: 'Táborok', href: '/camps',
     children: [
-      { text: '2019', href: '/tabor2019' },
-      { text: '2022', href: '/tabor2022' },
+      { text: '2019', href: '/camp2019' },
+      { text: '2022', href: '/camp2022' },
     ],
   },
   {
-    text: 'Hírek, Események', href: '/hírek',
-    children: [{ text: 'Naptár', href: '/n' }],
+    text: 'Hírek, Események', href: '/news',
+    children: [{ text: 'Naptár', href: '/calendar' }],
   },
-  { text: 'Elérhetőség', href: '/faq' },
+  { text: 'Elérhetőség', href: '/contact' },
 ];
 
 const currentPath = decodeURIComponent(Astro.url.pathname).replace(/\/$/, '') || '/';
