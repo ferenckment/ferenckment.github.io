@@ -9,42 +9,44 @@ interface Props {
 const { title, description = 'A vancouveri Szent László Magyar Iskola hivatalos oldala. Magyar nyelvoktatás gyerekeknek és felnőtteknek 1960 óta.' } = Astro.props;
 
 const nav = [
-  { text: 'Kezdőlap', href: '/' },
+  { text: 'Kezdőlap', href: '/hu' },
   {
-    text: 'Rólunk', href: '/about',
-    children: [{ text: 'Segítőink', href: '/about/volunteers' }],
+    text: 'Rólunk', href: '/hu/about',
+    children: [{ text: 'Segítőink', href: '/hu/about/volunteers' }],
   },
   {
-    text: 'Oktatás', href: '/education',
+    text: 'Oktatás', href: '/hu/education',
     children: [
-      { text: 'Tanáraink', href: '/education/teachers' },
-      { text: 'Tantermeink', href: '/education/classrooms' },
-      { text: 'Csoportjaink', href: '/education/groups' },
-      { text: 'Órarend', href: '/education/schedule' },
-      { text: 'Tandíj, jelentkezés', href: '/education/tuition' },
+      { text: 'Tanáraink', href: '/hu/education/teachers' },
+      { text: 'Tantermeink', href: '/hu/education/classrooms' },
+      { text: 'Csoportjaink', href: '/hu/education/groups' },
+      { text: 'Órarend', href: '/hu/education/schedule' },
+      { text: 'Tandíj, jelentkezés', href: '/hu/education/tuition' },
     ],
   },
   {
-    text: 'Táborok', href: '/camps',
+    text: 'Táborok', href: '/hu/camps',
     children: [
-      { text: '2019', href: '/camps/2019' },
-      { text: '2022', href: '/camps/2022' },
+      { text: '2019', href: '/hu/camps/2019' },
+      { text: '2022', href: '/hu/camps/2022' },
     ],
   },
   {
-    text: 'Hírek, Események', href: '/news',
-    children: [{ text: 'Naptár', href: '/news/calendar' }],
+    text: 'Hírek, Események', href: '/hu/news',
+    children: [{ text: 'Naptár', href: '/hu/news/calendar' }],
   },
-  { text: 'Elérhetőség', href: '/contact' },
+  { text: 'Elérhetőség', href: '/hu/contact' },
 ];
 
 const currentPath = decodeURIComponent(Astro.url.pathname).replace(/\/$/, '') || '/';
 
-// 'page' on the exact page; 'true' on a parent whose child page is open
+// 'page' on the exact page; 'true' on a parent whose child page is open.
+// Language roots ('/hu') never count as parents, or Kezdőlap would always light up.
+const langRoots = ['/', '/hu'];
 const currentAttr = (href: string) =>
   currentPath === href
     ? 'page'
-    : href !== '/' && currentPath.startsWith(href + '/')
+    : !langRoots.includes(href) && currentPath.startsWith(href + '/')
       ? 'true'
       : undefined;
 ---
@@ -68,7 +70,7 @@ const currentAttr = (href: string) =>
   <body>
     <header class="site-header">
       <div class="site-header__inner">
-        <a class="site-brand" href="/">
+        <a class="site-brand" href="/hu/">
           <img class="site-brand__herma" src="/images/szent-laszlo-herma.png" alt="Szent László herma" />
           <span>
             Szent László Magyar Iskola
@@ -79,6 +81,7 @@ const currentAttr = (href: string) =>
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />
         <label for="nav-toggle" class="nav-toggle-label" aria-label="Menü">☰</label>
 
+        <div class="header-end">
         <nav class="site-nav" aria-label="Fő navigáció">
           <ul>
             {nav.map((item) => (
@@ -103,6 +106,16 @@ const currentAttr = (href: string) =>
             ))}
           </ul>
         </nav>
+
+        <div class="lang-switch">
+          <a class="lang-switch__item is-active" href="/hu/" title="Magyar">
+            <img src="/images/flags/flag-hu.svg" alt="Magyar" />
+          </a>
+          <span class="lang-switch__item is-disabled" title="English version coming soon">
+            <img src="/images/flags/flag-ca.svg" alt="English (hamarosan)" />
+          </span>
+        </div>
+        </div>
       </div>
     </header>
 
