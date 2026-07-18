@@ -61,8 +61,11 @@ const currentPath = decodeURIComponent(Astro.url.pathname).replace(/\/$/, '') ||
     <header class="site-header">
       <div class="site-header__inner">
         <a class="site-brand" href="/">
-          Szent László Magyar Iskola
-          <small>Vancouver · Alapítva 1960</small>
+          <img class="site-brand__herma" src="/images/szent-laszlo-herma.png" alt="Szent László herma" />
+          <span>
+            Szent László Magyar Iskola
+            <small>Vancouver · Alapítva 1960</small>
+          </span>
         </a>
 
         <input type="checkbox" id="nav-toggle" class="nav-toggle" />

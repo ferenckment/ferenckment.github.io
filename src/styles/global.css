@@ -85,13 +85,17 @@ img { max-width: 100%; height: auto; display: block; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
   max-width: 72rem;
   margin-inline: auto;
   padding: 0.6rem 1.25rem;
 }
 
 .site-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
   font-family: var(--font-display);
   font-size: 1.25rem;
   font-weight: 700;
@@ -99,6 +103,14 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--ink);
   line-height: 1.2;
 }
+
+.site-brand__herma {
+  height: 2.6rem;
+  width: auto;
+  border-radius: 4px;
+}
+
+.site-brand span { white-space: nowrap; }
 
 .site-brand small {
   display: block;
