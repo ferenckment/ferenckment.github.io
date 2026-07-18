@@ -10,11 +10,12 @@ No database, no API, no client-side framework. Site language is Hungarian.
 
 ## Structure
 
-- One page = one `.astro` file in `src/pages/`. Routes are English
-  (`about`, `education`, `teachers`, `news`, `camps`, …) while all visible content
-  is Hungarian. The original site's Hungarian URLs redirect to the English ones
-  via the `redirects` map in `astro.config.mjs` — keep that map in sync if routes
-  change again.
+- One page = one `.astro` file in `src/pages/`. Routes are English and nested to
+  express hierarchy (`/about/volunteers`, `/education/teachers`, `/camps/2019`,
+  `/news/calendar`, …) while all visible content is Hungarian. Section landing
+  pages are `<section>/index.astro`. The original site's Hungarian URLs and the
+  earlier flat English routes redirect to the current ones via the `redirects`
+  map in `astro.config.mjs` — keep that map in sync if routes change again.
 - News posts live in `src/content/news/*.md` (collection defined in
   `src/content.config.ts`). Adding a news item = adding a markdown file with
   `title` and `date` frontmatter. The `/news` page lists them newest-first.

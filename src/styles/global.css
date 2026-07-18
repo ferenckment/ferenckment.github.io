@@ -162,9 +162,6 @@ img { max-width: 100%; height: auto; display: block; }
 
 .site-nav a[aria-current="page"] {
   color: var(--accent-strong);
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 6px;
 }
 
 .site-nav li { position: relative; }
