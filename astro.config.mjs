@@ -1,8 +1,19 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://www.szlmagyariskola.ca',
+  integrations: [
+    sitemap({
+      // only real pages; the top-level redirect stubs stay out of the sitemap
+      filter: (page) => /\/(hu|en)\//.test(new URL(page).pathname),
+      i18n: {
+        defaultLocale: 'hu',
+        locales: { hu: 'hu-CA', en: 'en-CA' },
+      },
+    }),
+  ],
   // Every earlier URL generation → current /hu/-prefixed nested routes:
   // Hungarian originals (website.com era), flat English, and un-prefixed nested.
   redirects: {
