@@ -405,12 +405,14 @@ img { max-width: 100%; height: auto; display: block; }
   gap: 0.25rem 1rem;
   background: var(--paper-warm);
   border-bottom: 1px solid var(--line);
-  padding: 0.6rem 1.25rem;
+  padding: calc(0.6rem - 1px) 1.25rem;
 }
 
 .news-item__head h2 {
   margin: 0;
-  font-size: 1.25rem;
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
 .news-item__head time {
@@ -424,7 +426,7 @@ img { max-width: 100%; height: auto; display: block; }
 
 .news-item__body {
   padding: 1rem 1.25rem 0.5rem;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .news-item__body p { margin: 0 0 0.7rem; }
