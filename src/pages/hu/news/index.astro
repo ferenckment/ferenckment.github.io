@@ -17,12 +17,16 @@ const fmt = new Intl.DateTimeFormat('hu-HU', { year: 'numeric', month: 'long', d
     <h1 class="page-title">Hírek, Események</h1>
 
     {rendered.map(({ post, Content }) => (
-      <article class="news-item prose">
-        <time datetime={post.data.date.toISOString().slice(0, 10)}>
-          {fmt.format(post.data.date)}
-        </time>
-        <h2>{post.data.title}</h2>
-        <Content />
+      <article class="news-item">
+        <header class="news-item__head">
+          <h2>{post.data.title}</h2>
+          <time datetime={post.data.date.toISOString().slice(0, 10)}>
+            {fmt.format(post.data.date)}
+          </time>
+        </header>
+        <div class="news-item__body prose">
+          <Content />
+        </div>
       </article>
     ))}
   </div>
